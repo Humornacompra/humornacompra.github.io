@@ -11,7 +11,7 @@
             --accent2: #ff1a1a;
             --glass-bg: rgba(255,255,255,0.08);
             --glass-border: rgba(255,255,255,0.18);
-            --title-color: #e6d5b8; /* bege */
+            --title-color: #e6d5b8;
         }
 
         body {
@@ -37,7 +37,6 @@
             z-index: -1;
         }
 
-        /* LOADING */
         #loader {
             position: fixed;
             top: 0; left: 0;
@@ -67,6 +66,8 @@
             max-width: 500px;
             width: 100%;
             text-align: center;
+            position: relative;
+            z-index: 5;
         }
 
         .profile-pic {
@@ -80,15 +81,22 @@
                 0 0 45px var(--accent2);
         }
 
-        /* REMOVIDO o nome abaixo da foto */
+        /* Nome corrigido */
+        .profile-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            margin: 15px 0 30px 0;
+            z-index: 20;
+            position: relative;
+        }
 
         h1, h2 {
             margin-bottom: 20px;
-            color: var(--title-color); /* bege */
-            text-shadow: none; /* remove sombreado */
+            color: var(--title-color);
+            text-shadow: none;
         }
 
-        /* LINKS */
         .link-card {
             background: var(--glass-bg);
             padding: 15px 20px;
@@ -145,19 +153,11 @@
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
-        .profile-name {
-    font-size: 26px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    color: var(--title-color);
-}
     </style>
 </head>
 
 <body>
 
-    <!-- LOADING -->
     <div id="loader">
         <div class="loader-spinner"></div>
     </div>
@@ -168,7 +168,8 @@
 
         <img src="logo.png" alt="Foto de Perfil" class="profile-pic">
 
-        <h1 class="profile-name">Humornacompra</h1>
+        <!-- Nome agora aparece corretamente -->
+        <p class="profile-name">Humornacompra</p>
 
         <h2>Redes Sociais</h2>
 
@@ -211,7 +212,3 @@
 
 </body>
 </html>
-
-
-
-
