@@ -3,142 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Linktree</title>
+    <title>Humornacompra - Site Oficial</title>
 
     <style>
         :root {
-            --bg-dark: #0d0d0d;
-            --text-dark: #f5f5f5;
-            --card-dark: #1a1a1a;
-
-            --bg-light: #f5f5f5;
-            --text-light: #0d0d0d;
-            --card-light: #ffffff;
-
-            --accent: #4da6ff;
+            --accent: #ff6600;
+            --accent2: #ff1a1a;
+            --glass-bg: rgba(255,255,255,0.08);
+            --glass-border: rgba(255,255,255,0.18);
         }
 
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
+            color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
-            transition: 0.3s ease;
+
+            background: url('fundo-site.png') no-repeat center center fixed;
+            background-size: cover;
         }
 
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.55);
+            z-index: -1;
+        }
+
+        /* LOADING */
+        #loader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease;
+        }
+
+        .loader-spinner {
+            border: 5px solid rgba(255,255,255,0.2);
+            border-top: 5px solid var(--accent);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* CONTAINER */
         .container {
             max-width: 500px;
             width: 100%;
             text-align: center;
         }
 
-        h1 {
-            margin-bottom: 30px;
+        /* FOTO PERFIL */
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 0 15px var(--accent2),
+                0 0 30px var(--accent),
+                0 0 45px var(--accent2);
         }
 
+        h1 {
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px #000;
+        }
+
+        /* LINKS */
         .link-card {
-            background-color: var(--card-dark);
+            background: var(--glass-bg);
             padding: 15px 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             margin: 12px 0;
-            text-decoration: none;
-            display: block;
-            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #fff;
             font-size: 18px;
-            border: 1px solid transparent;
+            border: 1px solid var(--glass-border);
             transition: 0.2s ease;
+            backdrop-filter: blur(6px);
+            text-decoration: none;
         }
 
         .link-card:hover {
             border-color: var(--accent);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.15);
         }
 
-        /* Botão Toggle */
-        .toggle-btn {
-            cursor: pointer;
-            background: transparent;
-            border: 1px solid var(--accent);
-            padding: 10px 16px;
-            border-radius: 8px;
-            color: var(--accent);
-            font-size: 14px;
-            transition: 0.2s ease;
-            margin-bottom: 25px;
+        /* ANIMAÇÃO DOS ÍCONES */
+        .icon-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
-        .toggle-btn:hover {
-            background: var(--accent);
-            color: #fff;
+        /* AUMENTA, ILUMINA E GIRA LEVINHO */
+        .link-card:hover .icon-img {
+            transform: scale(1.25) rotate(8deg);
+            filter: drop-shadow(0 0 8px var(--accent));
         }
 
-        /* Tema claro */
-        .light {
-            background-color: var(--bg-light);
-            color: var(--text-light);
+        /* ANIMAÇÃO OPCIONAL DE "PULSE" (DESLIGADA POR PADRÃO)
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
         }
 
-        .light .link-card {
-            background-color: var(--card-light);
-            color: var(--text-light);
+        .icon-img {
+            animation: pulse 2s infinite;
         }
+        */
 
-        .light .toggle-btn {
-            border-color: #0077cc;
-            color: #0077cc;
-        }
-
-        .light .toggle-btn:hover {
-            background: #0077cc;
-            color: #fff;
-        }
-
-        /* Nova área de texto */
         .text-area {
             margin-top: 40px;
-            background-color: var(--card-dark);
+            background: var(--glass-bg);
             padding: 20px;
             border-radius: 12px;
             text-align: left;
             font-size: 16px;
             line-height: 1.6;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(6px);
         }
 
-        .light .text-area {
-            background-color: var(--card-light);
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+            background: rgba(0,0,0,0.4);
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
     </style>
 </head>
 
 <body>
-    <button class="toggle-btn" onclick="toggleTheme()">Alternar tema</button>
 
-    <div class="container">
-        <h1>Meus Links</h1>
-
-        <a href="#" class="link-card">Instagram</a>
-        <a href="#" class="link-card">YouTube</a>
-        <a href="#" class="link-card">Portfólio</a>
-        <a href="#" class="link-card">Contato</a>
-
-        <!-- Nova área para você escrever -->
-        <div class="text-area">
-            <h2>Sobre mim</h2>
-            <p>
-                Aqui você pode escrever qualquer texto, biografia, anúncio, lembrete ou recado.
-                Basta editar este conteúdo no arquivo HTML.
-            </p>
-        </div>
+    <!-- LOADING -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
     </div>
 
+    <div class="overlay"></div>
+
+    <div class="container">
+
+        <img src="perfil.png" alt="Foto de Perfil" class="profile-pic">
+
+        <h1>Meus Links</h1>
+
+        <!-- LINKS COM IMAGENS ANIMADAS -->
+        <a href="https://www.instagram.com/astk_hihiha/" class="link-card">
+            <img src="instagram.png" class="icon-img"> Instagram
+        </a>
+
+        <a href="https://www.youtube.com/@Douglas-nw4ub" class="link-card">
+            <img src="youtube.png" class="icon-img"> YouTube
+        </a>
+
+        <a href="https://www.tiktok.com/@humornacompra" class="link-card">
+            <img src="tiktok.png" class="icon-img"> TikTok
+        </a>
+
+        <div class="text-area">
+            <h2>Meus Contatos</h2>
+            <p>Email: douglasleal855@gmail.com</p>
+
+            <p>
+                <img src="discord.png" class="icon-img">
+                <a href="https://discord.gg/WsHprBwD" style="color:white; text-decoration:none;">
+                    Servidor do Discord
+                </a>
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2025 Humornacompra • Todos os direitos reservados
+    </footer>
+
     <script>
-        function toggleTheme() {
-            document.body.classList.toggle("light");
-        }
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            loader.style.opacity = "0";
+            setTimeout(() => loader.style.display = "none", 800);
+        });
     </script>
 
 </body>
