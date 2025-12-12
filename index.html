@@ -34,20 +34,23 @@ body {
     padding: 40px 20px;
 }
 
-header {
+/* ===== CABEÇALHO ===== */
+
+.header {
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 25px;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
-header img {
-    width: 120px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-header h1 {
+.header h1 {
     margin: 0;
-    font-size: 32px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #fff;
 }
 
 /* ===== ABAS ===== */
@@ -138,72 +141,70 @@ header h1 {
 
 <div class="container">
 
-<header>
-    <img src="logo.png" alt="Humornacompra">
-    <h1>Humornacompra</h1>
-</header>
+    <!-- CABEÇALHO -->
+    <header class="header">
+        <h1 id="pageTitle">Humornacompra</h1>
+    </header>
 
-<!-- ===== ABAS ===== -->
-<div class="tabs">
-    <button class="tab-btn active" onclick="openTab(0)">Aba 1</button>
-    <button class="tab-btn" onclick="openTab(1)">Aba 2</button>
-    <button class="tab-btn" onclick="openTab(2)">Aba 3</button>
-</div>
-
-<!-- ===== CONTEÚDO DAS ABAS ===== -->
-
-<div class="tab-content active">
-
-    <div class="product-card">
-        <img src="produto1.jpg">
-        <div class="product-title">Produto Exemplo 1</div>
-        <div class="product-price">R$ 199,90</div>
-        <a href="#" class="buy-btn">Ver na Amazon</a>
+    <!-- ABAS -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(0, 'Humornacompra')">Aba 1</button>
+        <button class="tab-btn" onclick="openTab(1, 'Humornacompra')">Aba 2</button>
+        <button class="tab-btn" onclick="openTab(2, 'Humornacompra')">Aba 3</button>
     </div>
 
-    <div class="product-card">
-        <img src="produto2.jpg">
-        <div class="product-title">Produto Exemplo 2</div>
-        <div class="product-price">R$ 89,90</div>
-        <a href="#" class="buy-btn">Ver na Amazon</a>
+    <!-- ABA 1 -->
+    <div class="tab-content active">
+        <div class="product-card">
+            <img src="produto1.jpg">
+            <div class="product-title">Produto Exemplo 1</div>
+            <div class="product-price">R$ 199,90</div>
+            <a href="#" class="buy-btn">Ver na Amazon</a>
+        </div>
+
+        <div class="product-card">
+            <img src="produto2.jpg">
+            <div class="product-title">Produto Exemplo 2</div>
+            <div class="product-price">R$ 89,90</div>
+            <a href="#" class="buy-btn">Ver na Amazon</a>
+        </div>
     </div>
 
-</div>
-
-<div class="tab-content">
-
-    <div class="product-card">
-        <img src="produto3.jpg">
-        <div class="product-title">Produto Exemplo 3</div>
-        <div class="product-price">R$ 249,90</div>
-        <a href="#" class="buy-btn">Ver na Amazon</a>
+    <!-- ABA 2 -->
+    <div class="tab-content">
+        <div class="product-card">
+            <img src="produto3.jpg">
+            <div class="product-title">Produto Exemplo 3</div>
+            <div class="product-price">R$ 249,90</div>
+            <a href="#" class="buy-btn">Ver na Amazon</a>
+        </div>
     </div>
 
-</div>
-
-<div class="tab-content">
-
-    <div class="product-card">
-        <img src="produto4.jpg">
-        <div class="product-title">Produto Exemplo 4</div>
-        <div class="product-price">R$ 59,90</div>
-        <a href="#" class="buy-btn">Ver na Amazon</a>
+    <!-- ABA 3 -->
+    <div class="tab-content">
+        <div class="product-card">
+            <img src="produto4.jpg">
+            <div class="product-title">Produto Exemplo 4</div>
+            <div class="product-price">R$ 59,90</div>
+            <a href="#" class="buy-btn">Ver na Amazon</a>
+        </div>
     </div>
-
-</div>
 
 </div>
 
 <script>
-function openTab(index) {
+function openTab(index, title) {
     const tabs = document.querySelectorAll('.tab-btn');
     const contents = document.querySelectorAll('.tab-content');
+    const pageTitle = document.getElementById('pageTitle');
 
     tabs.forEach(tab => tab.classList.remove('active'));
     contents.forEach(content => content.classList.remove('active'));
 
     tabs[index].classList.add('active');
     contents[index].classList.add('active');
+
+    pageTitle.textContent = title;
 }
 </script>
 
