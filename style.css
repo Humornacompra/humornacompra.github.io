@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 28px;
-    align-items: stretch; /* garante mesma altura */
+    align-items: stretch;
 }
 
 /* ===== CARD ===== */
@@ -23,10 +23,10 @@
 
 .product-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
 }
 
-/* ===== MOLDURA DA IMAGEM ===== */
+/* ===== IMAGE WRAPPER ===== */
 .product-image {
     width: 100%;
     height: 180px;
@@ -41,15 +41,15 @@
     overflow: hidden;
 }
 
-/* imagem nunca estica e nunca vaza */
+/* garante consistência visual no grid */
 .product-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 10px; /* respiro visual */
+    padding: 10px;
 }
 
-/* ===== TEXTO ===== */
+/* ===== TEXT ===== */
 .product-card h3 {
     font-size: 15px;
     font-weight: 600;
@@ -65,7 +65,7 @@
     margin-bottom: 14px;
 }
 
-/* ===== BOTÃO ===== */
+/* ===== BUTTON ===== */
 .buy-btn {
     margin-top: auto;
     padding: 12px;
@@ -83,7 +83,7 @@
     filter: brightness(0.9);
 }
 
-/* ===== RESPONSIVO ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
     .product-image {
         height: 150px;
