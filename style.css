@@ -9,7 +9,7 @@
 /* Corpo da página */
 body {
     min-height: 100vh;
-    background-image: url("fundo.png");
+    background-image: url("fundo-site.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -94,3 +94,4 @@ footer {
         padding: 25px;
     }
 }
+
