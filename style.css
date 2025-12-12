@@ -1,4 +1,6 @@
-/* Reset básico */
+/* ========================= */
+/* RESET BÁSICO */
+/* ========================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +8,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Corpo da página */
+/* ========================= */
+/* CORPO DA PÁGINA */
+/* ========================= */
 body {
     min-height: 100vh;
     background-image: url("fundo-site.png");
@@ -16,13 +20,15 @@ body {
     background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* CORRIGIDO */
+    align-items: flex-start;
     padding: 40px 15px;
 }
 
-/* Container principal */
+/* ========================= */
+/* CONTAINER PRINCIPAL */
+/* ========================= */
 .container {
-    background-color: rgba(255, 255, 255, 0.88);
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 40px;
     border-radius: 16px;
     width: 90%;
@@ -30,23 +36,26 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-/* Título principal */
+/* ========================= */
+/* TÍTULOS */
+/* ========================= */
 h1 {
     text-align: center;
-    font-size: 2.8rem;
-    color: #2e7d32;
-    margin-bottom: 25px;
+    font-size: 2.6rem;
+    color: #232f3e;
+    margin-bottom: 20px;
 }
 
-/* Subtítulos */
 h2 {
-    color: #388e3c;
+    color: #232f3e;
     margin-top: 30px;
     margin-bottom: 10px;
     font-size: 1.6rem;
 }
 
-/* Texto padrão */
+/* ========================= */
+/* TEXTO */
+/* ========================= */
 p {
     color: #333;
     font-size: 1.05rem;
@@ -54,44 +63,83 @@ p {
     margin-bottom: 15px;
 }
 
-/* Lista */
-ul {
-    list-style: none;
-    margin-top: 10px;
+/* ========================= */
+/* GRID DE PRODUTOS */
+/* ========================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
 }
 
-ul li {
-    background-color: #e8f5e9;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    border-left: 6px solid #4caf50;
-    border-radius: 6px;
-    color: #1b5e20;
+/* ========================= */
+/* CARD DO PRODUTO */
+/* ========================= */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* BOTÕES */
-button,
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+/* ========================= */
+/* IMAGEM DO PRODUTO */
+/* ========================= */
+.card img {
+    width: 100%;
+    max-width: 260px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* ========================= */
+/* TEXTO DO PRODUTO */
+/* ========================= */
+.card p {
+    font-size: 1rem;
+    color: #111;
+    font-weight: 600;
+    min-height: 48px;
+}
+
+/* ========================= */
+/* BOTÃO PADRÃO AMAZON */
+/* ========================= */
 .btn {
     display: block;
     width: 100%;
-    max-width: 300px;
-    margin: 15px auto;
+    max-width: 260px;
+    margin: 15px auto 0;
     padding: 12px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
+    background-color: #ffd814;
+    color: #111;
+    border: 1px solid #fcd200;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s;
+    text-decoration: none;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
-button:hover,
 .btn:hover {
-    background-color: #388e3c;
+    background-color: #f7ca00;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Rodapé */
+/* ========================= */
+/* RODAPÉ */
+/* ========================= */
 footer {
     text-align: center;
     margin-top: 30px;
@@ -100,10 +148,9 @@ footer {
 }
 
 /* ========================= */
-/* RESPONSIVIDADE – TABLET */
+/* RESPONSIVIDADE */
 /* ========================= */
 @media (max-width: 600px) {
-
     h1 {
         font-size: 2.2rem;
     }
@@ -113,14 +160,9 @@ footer {
     }
 }
 
-/* ========================= */
-/* RESPONSIVIDADE – CELULAR */
-/* ========================= */
 @media (max-width: 480px) {
-
     body {
         padding: 15px;
-        align-items: flex-start;
     }
 
     .container {
@@ -133,16 +175,19 @@ footer {
         font-size: 1.9rem;
     }
 
-    h2 {
-        font-size: 1.3rem;
-    }
-
-    p,
-    ul li {
+    p {
         font-size: 0.95rem;
     }
 
-    button,
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 220px;
+        max-width: 100%;
+    }
+
     .btn {
         max-width: 100%;
         font-size: 0.95rem;
@@ -152,57 +197,3 @@ footer {
         font-size: 0.8rem;
     }
 }
-/* ========================= */
-/* CARDS DE IMAGENS */
-/* ========================= */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 30px;
-}
-
-/* Card individual */
-.card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Imagens dentro dos cards */
-.card img {
-    width: 100%;
-    max-width: 220px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-/* Texto do card */
-.card p {
-    font-size: 0.95rem;
-    color: #2e7d32;
-    font-weight: 600;
-}
-
-/* ========================= */
-/* RESPONSIVO – CELULAR */
-/* ========================= */
-@media (max-width: 480px) {
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .card img {
-        max-width: 100%;
-        height: 180px;
-    }
-}
-
-
-
