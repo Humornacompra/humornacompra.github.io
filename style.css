@@ -35,7 +35,6 @@ h1 {
     font-size: 2.8rem;
     color: #2e7d32;
     margin-bottom: 25px;
-    letter-spacing: 1px;
 }
 
 /* Subtítulos */
@@ -54,7 +53,7 @@ p {
     margin-bottom: 15px;
 }
 
-/* Lista de alimentos */
+/* Lista */
 ul {
     list-style: none;
     margin-top: 10px;
@@ -66,14 +65,29 @@ ul li {
     margin-bottom: 10px;
     border-left: 6px solid #4caf50;
     border-radius: 6px;
-    font-size: 1rem;
     color: #1b5e20;
 }
 
-/* Destaque */
-.destaque {
-    color: #1b5e20;
-    font-weight: bold;
+/* BOTÕES */
+button,
+.btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto;
+    padding: 12px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #388e3c;
 }
 
 /* Rodapé */
@@ -84,8 +98,11 @@ footer {
     color: #555;
 }
 
-/* Responsividade */
+/* ========================= */
+/* RESPONSIVIDADE – TABLET */
+/* ========================= */
 @media (max-width: 600px) {
+
     h1 {
         font-size: 2.2rem;
     }
@@ -93,8 +110,11 @@ footer {
     .container {
         padding: 25px;
     }
+}
 
-    /* Media Query – Celulares */
+/* ========================= */
+/* RESPONSIVIDADE – CELULAR */
+/* ========================= */
 @media (max-width: 480px) {
 
     body {
@@ -110,29 +130,24 @@ footer {
 
     h1 {
         font-size: 1.9rem;
-        margin-bottom: 20px;
     }
 
     h2 {
         font-size: 1.3rem;
-        margin-top: 20px;
     }
 
-    p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
+    p,
     ul li {
         font-size: 0.95rem;
-        padding: 10px 14px;
+    }
+
+    button,
+    .btn {
+        max-width: 100%;
+        font-size: 0.95rem;
     }
 
     footer {
         font-size: 0.8rem;
-        margin-top: 20px;
     }
 }
-
-
-
