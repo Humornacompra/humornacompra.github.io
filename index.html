@@ -1,214 +1,211 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Humornacompra - Site Oficial</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humornacompra • Vitrine Amazon</title>
 
-    <style>
-        :root {
-            --accent: #ff6600;
-            --accent2: #ff1a1a;
-            --glass-bg: rgba(255,255,255,0.08);
-            --glass-border: rgba(255,255,255,0.18);
-            --title-color: #e6d5b8;
-        }
+<style>
+:root {
+    --accent: #ff9900;
+    --glass-bg: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.18);
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            background: url('fundo-site.png') no-repeat center center fixed;
-            background-size: cover;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: url('fundo-site.png') no-repeat center center fixed;
+    background-size: cover;
+}
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            backdrop-filter: blur(10px);
-            background: rgba(0,0,0,0.55);
-            z-index: -1;
-        }
+.overlay {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+}
 
-        #loader {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease;
-        }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
 
-        .loader-spinner {
-            border: 5px solid rgba(255,255,255,0.2);
-            border-top: 5px solid var(--accent);
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+header img {
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
 
-        .container {
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-            z-index: 5;
-        }
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
 
-        .profile-pic {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            box-shadow:
-                0 0 15px var(--accent2),
-                0 0 30px var(--accent),
-                0 0 45px var(--accent2);
-        }
+/* ===== ABAS ===== */
 
-        /* Nome corrigido */
-        .profile-name {
-            font-size: 28px;
-            font-weight: bold;
-            color: #fff;
-            margin: 15px 0 30px 0;
-            z-index: 20;
-            position: relative;
-        }
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
 
-        h1, h2 {
-            margin-bottom: 20px;
-            color: var(--title-color);
-            text-shadow: none;
-        }
+.tab-btn {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-        .link-card {
-            background: var(--glass-bg);
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin: 12px 0;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #fff;
-            font-size: 18px;
-            border: 1px solid var(--glass-border);
-            transition: 0.2s ease;
-            backdrop-filter: blur(6px);
-            text-decoration: none;
-        }
+.tab-btn.active {
+    background: var(--accent);
+    color: #000;
+    font-weight: bold;
+}
 
-        .link-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            background: rgba(255,255,255,0.15);
-        }
+/* ===== VITRINE ===== */
 
-        .icon-img {
-            width: 30px;
-            height: 30px;
-            border-radius: 6px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
+.tab-content {
+    display: none;
+}
 
-        .link-card:hover .icon-img {
-            transform: scale(1.25) rotate(8deg);
-            filter: drop-shadow(0 0 8px var(--accent));
-        }
+.tab-content.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
 
-        .text-area {
-            margin-top: 40px;
-            background: var(--glass-bg);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: left;
-            font-size: 16px;
-            line-height: 1.6;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(6px);
-        }
+/* ===== CARD PRODUTO ===== */
 
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            font-size: 14px;
-            opacity: 0.8;
-            background: rgba(0,0,0,0.4);
-            width: 100%;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-    </style>
+.product-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    backdrop-filter: blur(6px);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product-title {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.product-price {
+    color: var(--accent);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.buy-btn {
+    display: block;
+    padding: 10px;
+    background: var(--accent);
+    color: #000;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
 </head>
 
 <body>
 
-    <div id="loader">
-        <div class="loader-spinner"></div>
+<div class="overlay"></div>
+
+<div class="container">
+
+<header>
+    <img src="logo.png" alt="Humornacompra">
+    <h1>Humornacompra</h1>
+</header>
+
+<!-- ===== ABAS ===== -->
+<div class="tabs">
+    <button class="tab-btn active" onclick="openTab(0)">Aba 1</button>
+    <button class="tab-btn" onclick="openTab(1)">Aba 2</button>
+    <button class="tab-btn" onclick="openTab(2)">Aba 3</button>
+</div>
+
+<!-- ===== CONTEÚDO DAS ABAS ===== -->
+
+<div class="tab-content active">
+
+    <div class="product-card">
+        <img src="produto1.jpg">
+        <div class="product-title">Produto Exemplo 1</div>
+        <div class="product-price">R$ 199,90</div>
+        <a href="#" class="buy-btn">Ver na Amazon</a>
     </div>
 
-    <div class="overlay"></div>
-
-    <div class="container">
-
-        <img src="logo.png" alt="Foto de Perfil" class="profile-pic">
-
-        <!-- Nome agora aparece corretamente -->
-        <p class="profile-name">Humornacompra</p>
-
-        <h2>Redes Sociais</h2>
-
-        <a href="https://www.instagram.com/astk_hihiha/" class="link-card">
-            <img src="instagram.png" class="icon-img"> Instagram
-        </a>
-
-        <a href="https://www.youtube.com/@Douglas-nw4ub" class="link-card">
-            <img src="youtube.png" class="icon-img"> YouTube
-        </a>
-
-        <a href="https://www.tiktok.com/@humornacompra" class="link-card">
-            <img src="tiktok.png" class="icon-img"> TikTok
-        </a>
-
-        <div class="text-area">
-            <h2>Meus Contatos</h2>
-            <p>Email: douglasleal855@gmail.com</p>
-
-            <p>
-                <a href="https://discord.gg/WsHprBwD" class="link-card">
-                    <img src="discord.png" class="icon-img"> Discord
-                </a>
-            </p>
-        </div>
-
+    <div class="product-card">
+        <img src="produto2.jpg">
+        <div class="product-title">Produto Exemplo 2</div>
+        <div class="product-price">R$ 89,90</div>
+        <a href="#" class="buy-btn">Ver na Amazon</a>
     </div>
 
-    <footer>
-        © 2025 Humornacompra • Todos os direitos reservados
-    </footer>
+</div>
 
-    <script>
-        window.addEventListener("load", () => {
-            const loader = document.getElementById("loader");
-            loader.style.opacity = "0";
-            setTimeout(() => loader.style.display = "none", 800);
-        });
-    </script>
+<div class="tab-content">
+
+    <div class="product-card">
+        <img src="produto3.jpg">
+        <div class="product-title">Produto Exemplo 3</div>
+        <div class="product-price">R$ 249,90</div>
+        <a href="#" class="buy-btn">Ver na Amazon</a>
+    </div>
+
+</div>
+
+<div class="tab-content">
+
+    <div class="product-card">
+        <img src="produto4.jpg">
+        <div class="product-title">Produto Exemplo 4</div>
+        <div class="product-price">R$ 59,90</div>
+        <a href="#" class="buy-btn">Ver na Amazon</a>
+    </div>
+
+</div>
+
+</div>
+
+<script>
+function openTab(index) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    contents.forEach(content => content.classList.remove('active'));
+
+    tabs[index].classList.add('active');
+    contents[index].classList.add('active');
+}
+</script>
 
 </body>
 </html>
