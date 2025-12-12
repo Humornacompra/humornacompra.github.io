@@ -28,7 +28,7 @@
 /* ===== MOLDURA DA IMAGEM (CHAVE DA SOLUÇÃO) ===== */
 .product-image {
     width: 100%;
-    height: 180px;              /* 🔑 altura fixa */
+    height: 180px;
     background: #fff;
     border-radius: 14px;
     margin-bottom: 14px;
@@ -37,7 +37,7 @@
     align-items: center;
     justify-content: center;
 
-    overflow: hidden;           /* 🔑 nada estoura */
+    overflow: hidden;
 }
 
 .product-image img {
@@ -73,3 +73,4 @@
     font-weight: bold;
     text-align: center;
 }
+
