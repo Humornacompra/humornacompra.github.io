@@ -16,7 +16,8 @@ body {
     background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* CORRIGIDO */
+    padding: 40px 15px;
 }
 
 /* Container principal */
@@ -202,5 +203,6 @@ footer {
         height: 180px;
     }
 }
+
 
 
