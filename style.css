@@ -17,7 +17,7 @@ html, body {
 }
 
 /* ========================= */
-/* FUNDO COM BLUR E MOVIMENTO */
+/* FUNDO COM BLUR + MOVIMENTO */
 /* ========================= */
 .background-blur {
     position: fixed;
@@ -26,19 +26,10 @@ html, body {
     background-size: cover;
     background-position: center;
     filter: blur(12px);
-    transform: scale(1.1);
-    animation: moveBackground 30s linear infinite;
     z-index: -2;
-}
 
-/* Efeito de movimento no fundo */
-@keyframes moveBackground {
-    0% {
-        background-position: center;
-    }
-    100% {
-        background-position: 100% 0;
-    }
+    /* MOVIMENTO SUAVE */
+    animation: moveBackground 22s ease-in-out infinite;
 }
 
 /* OVERLAY PARA CONTRASTE */
@@ -47,6 +38,21 @@ html, body {
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
     z-index: -1;
+}
+
+/* ========================= */
+/* ANIMAÇÃO DO FUNDO */
+/* ========================= */
+@keyframes moveBackground {
+    0% {
+        transform: scale(1.1) translateY(0);
+    }
+    50% {
+        transform: scale(1.15) translateY(-25px);
+    }
+    100% {
+        transform: scale(1.1) translateY(0);
+    }
 }
 
 /* ========================= */
@@ -260,5 +266,10 @@ footer {
 
     footer {
         font-size: 0.8rem;
+    }
+
+    /* DESATIVA MOVIMENTO NO MOBILE (PERFORMANCE) */
+    .background-blur {
+        animation: none;
     }
 }
