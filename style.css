@@ -17,7 +17,7 @@ html, body {
 }
 
 /* ========================= */
-/* FUNDO COM BLUR (REAL) */
+/* FUNDO COM BLUR E MOVIMENTO */
 /* ========================= */
 .background-blur {
     position: fixed;
@@ -27,7 +27,18 @@ html, body {
     background-position: center;
     filter: blur(12px);
     transform: scale(1.1);
+    animation: moveBackground 30s linear infinite;
     z-index: -2;
+}
+
+/* Efeito de movimento no fundo */
+@keyframes moveBackground {
+    0% {
+        background-position: center;
+    }
+    100% {
+        background-position: 100% 0;
+    }
 }
 
 /* OVERLAY PARA CONTRASTE */
