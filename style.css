@@ -1,203 +1,66 @@
-/* ========================= */
 /* RESET */
-/* ========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-/* ========================= */
-/* BASE */
-/* ========================= */
 html, body {
     width: 100%;
     height: 100%;
 }
 
-/* ========================= */
-/* FUNDO DE SEGURANÇA (NUNCA SOME) */
-/* ========================= */
-body {
-    background-image: url("fundo-site.png");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 15px;
-}
-
-/* ========================= */
-/* FUNDO COM BLUR + MOVIMENTO */
-/* ========================= */
-.background-blur {
+/* FUNDO REAL */
+.bg {
     position: fixed;
     inset: 0;
     background-image: url("fundo-site.png");
     background-size: cover;
     background-position: center;
-    filter: blur(12px);
-    transform: scale(1.1);
-    z-index: -2;
-
-    animation: moveBackground 22s ease-in-out infinite;
-}
-
-/* OVERLAY */
-.background-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
+    filter: blur(18px);
+    transform: scale(1.25);
+    animation: bgMove 18s ease-in-out infinite;
     z-index: -1;
 }
 
-/* ========================= */
-/* ANIMAÇÃO DO FUNDO */
-/* ========================= */
-@keyframes moveBackground {
+/* ANIMAÇÃO REAL */
+@keyframes bgMove {
     0% {
-        transform: scale(1.1) translateY(0);
+        transform: scale(1.25) translateY(0);
     }
     50% {
-        transform: scale(1.15) translateY(-25px);
+        transform: scale(1.35) translateY(-50px);
     }
     100% {
-        transform: scale(1.1) translateY(0);
+        transform: scale(1.25) translateY(0);
     }
 }
 
-/* ========================= */
+/* CORPO */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+}
+
 /* CONTAINER */
-/* ========================= */
 .container {
-    background-color: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.95);
     padding: 40px;
     border-radius: 16px;
-    width: 90%;
     max-width: 900px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-    animation: fadeSlide 0.9s ease-out forwards;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
 }
 
-/* ========================= */
-/* ANIMAÇÃO ENTRADA */
-/* ========================= */
-@keyframes fadeSlide {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ========================= */
-/* TÍTULO */
-/* ========================= */
+/* TEXTO */
 h1 {
     text-align: center;
-    font-size: 2.6rem;
-    color: #232f3e;
     margin-bottom: 10px;
 }
 
-/* SUBTÍTULO */
-h1 + p {
+p {
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    color: #333;
-    font-size: 1.05rem;
-}
-
-/* ========================= */
-/* GRID */
-/* ========================= */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-/* ========================= */
-/* CARD */
-/* ========================= */
-.card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    transition: transform .25s, box-shadow .25s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 32px rgba(0,0,0,0.25);
-}
-
-/* ========================= */
-/* IMAGEM */
-/* ========================= */
-.card img {
-    width: 100%;
-    max-width: 260px;
-    height: 200px;
-    object-fit: contain;
-    margin-bottom: 15px;
-}
-
-/* ========================= */
-/* TEXTO */
-/* ========================= */
-.card p {
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.price {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #b12704;
-    margin-bottom: 12px;
-}
-
-/* ========================= */
-/* BOTÃO */
-/* ========================= */
-.btn {
-    display: block;
-    max-width: 260px;
-    margin: 0 auto;
-    padding: 12px;
-    background: #ffd814;
-    border: 1px solid #fcd200;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #111;
-    font-weight: 600;
-}
-
-.btn:hover {
-    background: #f7ca00;
-}
-
-/* ========================= */
-/* RESPONSIVO */
-/* ========================= */
-@media (max-width: 480px) {
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .background-blur {
-        animation: none;
-    }
 }
