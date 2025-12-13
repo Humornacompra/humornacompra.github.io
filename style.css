@@ -37,24 +37,27 @@ body {
 }
 
 /* ========================= */
-/* TÍTULOS */
+/* TÍTULO */
 /* ========================= */
 h1 {
     text-align: center;
     font-size: 2.6rem;
     color: #232f3e;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-h2 {
-    color: #232f3e;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    font-size: 1.6rem;
+/* FRASE ABAIXO DO TÍTULO (CENTRALIZADA) */
+h1 + p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 /* ========================= */
-/* TEXTO */
+/* TEXTO PADRÃO */
 /* ========================= */
 p {
     color: #333;
@@ -70,7 +73,7 @@ p {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 /* ========================= */
@@ -103,7 +106,7 @@ p {
 }
 
 /* ========================= */
-/* TEXTO DO PRODUTO */
+/* NOME DO PRODUTO */
 /* ========================= */
 .card p {
     font-size: 1rem;
@@ -113,13 +116,23 @@ p {
 }
 
 /* ========================= */
+/* PREÇO */
+/* ========================= */
+.price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #b12704;
+    margin: 8px 0 14px;
+}
+
+/* ========================= */
 /* BOTÃO PADRÃO AMAZON */
 /* ========================= */
 .btn {
     display: block;
     width: 100%;
     max-width: 260px;
-    margin: 15px auto 0;
+    margin: 0 auto;
     padding: 12px;
     background-color: #ffd814;
     color: #111;
@@ -175,8 +188,9 @@ footer {
         font-size: 1.9rem;
     }
 
-    p {
+    h1 + p {
         font-size: 0.95rem;
+        margin-bottom: 25px;
     }
 
     .cards {
