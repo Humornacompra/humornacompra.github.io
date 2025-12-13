@@ -9,15 +9,36 @@
 }
 
 /* ========================= */
-/* CORPO DA PÁGINA */
+/* FUNDO COM BLUR */
 /* ========================= */
-body {
-    min-height: 100vh;
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
     background-image: url("fundo-site.png");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    filter: blur(8px);
+    transform: scale(1.05);
+    z-index: -2;
+}
+
+/* ========================= */
+/* OVERLAY ESCURO (CONTRASTE) */
+/* ========================= */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: -1;
+}
+
+/* ========================= */
+/* CORPO */
+/* ========================= */
+body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -33,7 +54,24 @@ body {
     border-radius: 16px;
     width: 90%;
     max-width: 900px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+    /* MOVIMENTO DE ENTRADA */
+    animation: fadeSlide 0.9s ease-out forwards;
+}
+
+/* ========================= */
+/* ANIMAÇÃO DE ENTRADA */
+/* ========================= */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ========================= */
@@ -46,7 +84,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* FRASE ABAIXO DO TÍTULO (CENTRALIZADA) */
+/* FRASE ABAIXO DO TÍTULO */
 h1 + p {
     text-align: center;
     max-width: 700px;
@@ -77,7 +115,7 @@ p {
 }
 
 /* ========================= */
-/* CARD DO PRODUTO */
+/* CARD */
 /* ========================= */
 .card {
     background-color: #ffffff;
@@ -89,12 +127,12 @@ p {
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
 }
 
 /* ========================= */
-/* IMAGEM DO PRODUTO */
+/* IMAGEM */
 /* ========================= */
 .card img {
     width: 100%;
@@ -126,7 +164,7 @@ p {
 }
 
 /* ========================= */
-/* BOTÃO PADRÃO AMAZON */
+/* BOTÃO AMAZON */
 /* ========================= */
 .btn {
     display: block;
@@ -147,7 +185,7 @@ p {
 
 .btn:hover {
     background-color: #f7ca00;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
 
 /* ========================= */
