@@ -9,28 +9,32 @@
 }
 
 /* ========================= */
-/* FUNDO COM BLUR */
+/* BASE */
 /* ========================= */
-body::before {
-    content: "";
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================= */
+/* FUNDO COM BLUR (REAL) */
+/* ========================= */
+.background-blur {
     position: fixed;
     inset: 0;
     background-image: url("fundo-site.png");
     background-size: cover;
     background-position: center;
-    filter: blur(8px);
-    transform: scale(1.05);
+    filter: blur(12px);
+    transform: scale(1.1);
     z-index: -2;
 }
 
-/* ========================= */
-/* OVERLAY ESCURO (CONTRASTE) */
-/* ========================= */
-body::after {
-    content: "";
+/* OVERLAY PARA CONTRASTE */
+.background-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.3);
     z-index: -1;
 }
 
@@ -49,14 +53,12 @@ body {
 /* CONTAINER PRINCIPAL */
 /* ========================= */
 .container {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.96);
     padding: 40px;
     border-radius: 16px;
     width: 90%;
     max-width: 900px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-
-    /* MOVIMENTO DE ENTRADA */
     animation: fadeSlide 0.9s ease-out forwards;
 }
 
