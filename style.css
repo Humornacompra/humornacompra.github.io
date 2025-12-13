@@ -1,5 +1,5 @@
 /* ========================= */
-/* RESET BÁSICO */
+/* RESET */
 /* ========================= */
 * {
     margin: 0;
@@ -17,6 +17,22 @@ html, body {
 }
 
 /* ========================= */
+/* FUNDO DE SEGURANÇA (NUNCA SOME) */
+/* ========================= */
+body {
+    background-image: url("fundo-site.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 15px;
+}
+
+/* ========================= */
 /* FUNDO COM BLUR + MOVIMENTO */
 /* ========================= */
 .background-blur {
@@ -26,13 +42,13 @@ html, body {
     background-size: cover;
     background-position: center;
     filter: blur(12px);
+    transform: scale(1.1);
     z-index: -2;
 
-    /* MOVIMENTO SUAVE */
     animation: moveBackground 22s ease-in-out infinite;
 }
 
-/* OVERLAY PARA CONTRASTE */
+/* OVERLAY */
 .background-overlay {
     position: fixed;
     inset: 0;
@@ -56,18 +72,7 @@ html, body {
 }
 
 /* ========================= */
-/* CORPO */
-/* ========================= */
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 15px;
-}
-
-/* ========================= */
-/* CONTAINER PRINCIPAL */
+/* CONTAINER */
 /* ========================= */
 .container {
     background-color: rgba(255, 255, 255, 0.96);
@@ -80,7 +85,7 @@ body {
 }
 
 /* ========================= */
-/* ANIMAÇÃO DE ENTRADA */
+/* ANIMAÇÃO ENTRADA */
 /* ========================= */
 @keyframes fadeSlide {
     from {
@@ -103,51 +108,39 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* FRASE ABAIXO DO TÍTULO */
+/* SUBTÍTULO */
 h1 + p {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 30px;
     color: #333;
     font-size: 1.05rem;
-    line-height: 1.6;
 }
 
 /* ========================= */
-/* TEXTO PADRÃO */
-/* ========================= */
-p {
-    color: #333;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 15px;
-}
-
-/* ========================= */
-/* GRID DE PRODUTOS */
+/* GRID */
 /* ========================= */
 .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
-    margin-top: 10px;
 }
 
 /* ========================= */
 /* CARD */
 /* ========================= */
 .card {
-    background-color: #ffffff;
+    background: #fff;
     border-radius: 12px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform .25s, box-shadow .25s;
 }
 
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.25);
 }
 
 /* ========================= */
@@ -158,117 +151,52 @@ p {
     max-width: 260px;
     height: 200px;
     object-fit: contain;
-    border-radius: 8px;
     margin-bottom: 15px;
 }
 
 /* ========================= */
-/* NOME DO PRODUTO */
+/* TEXTO */
 /* ========================= */
 .card p {
-    font-size: 1rem;
-    color: #111;
     font-weight: 600;
-    min-height: 48px;
+    margin-bottom: 8px;
 }
 
-/* ========================= */
-/* PREÇO */
-/* ========================= */
 .price {
     font-size: 1.15rem;
     font-weight: 700;
     color: #b12704;
-    margin: 8px 0 14px;
+    margin-bottom: 12px;
 }
 
 /* ========================= */
-/* BOTÃO AMAZON */
+/* BOTÃO */
 /* ========================= */
 .btn {
     display: block;
-    width: 100%;
     max-width: 260px;
     margin: 0 auto;
     padding: 12px;
-    background-color: #ffd814;
-    color: #111;
+    background: #ffd814;
     border: 1px solid #fcd200;
     border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
     text-decoration: none;
-    transition: background 0.3s, box-shadow 0.3s;
+    color: #111;
+    font-weight: 600;
 }
 
 .btn:hover {
-    background-color: #f7ca00;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    background: #f7ca00;
 }
 
 /* ========================= */
-/* RODAPÉ */
+/* RESPONSIVO */
 /* ========================= */
-footer {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* ========================= */
-/* RESPONSIVIDADE */
-/* ========================= */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    .container {
-        padding: 25px;
-    }
-}
-
 @media (max-width: 480px) {
-    body {
-        padding: 15px;
-    }
-
-    .container {
-        width: 100%;
-        padding: 20px;
-        border-radius: 12px;
-    }
-
-    h1 {
-        font-size: 1.9rem;
-    }
-
-    h1 + p {
-        font-size: 0.95rem;
-        margin-bottom: 25px;
-    }
-
     .cards {
         grid-template-columns: 1fr;
     }
 
-    .card img {
-        height: 220px;
-        max-width: 100%;
-    }
-
-    .btn {
-        max-width: 100%;
-        font-size: 0.95rem;
-    }
-
-    footer {
-        font-size: 0.8rem;
-    }
-
-    /* DESATIVA MOVIMENTO NO MOBILE (PERFORMANCE) */
     .background-blur {
         animation: none;
     }
